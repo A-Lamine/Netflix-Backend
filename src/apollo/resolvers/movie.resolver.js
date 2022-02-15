@@ -1,12 +1,12 @@
 const Movie = require('../../models/movie.model');
-const Catalogue = require('../../models/catalogue.model')
+
 module.exports = {
     Query: {
         getMovies: () => {
-            return Movie.find();
+            return Movie.find().populate('classification');
         },
         getMovie(parent, args, context) {
-            return Movie.findById(args.id);
+            return Movie.findById(args.id).populate('classification');
         }
 
     },
@@ -15,7 +15,8 @@ module.exports = {
             const newMovie = new Movie(
                 {
                     title: args.title,
-                    img: args.img
+                    img: args.img,
+                    classification: parent.classification
                 }
             )
             return newMovie.save();
@@ -25,7 +26,4 @@ module.exports = {
     }
 
 }
-
-
-
-}
+} 

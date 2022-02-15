@@ -5,14 +5,16 @@ const port = config.server.port;
 const apiRouter = require("../routes");
 const cors = require("cors");
 const { ApolloServer, gql } = require('apollo-server-express');
-const schemas = require('../apollo/schemas/movie.schema');
-const resolvers = require('../apollo/resolvers/movie.resolver');
+const Movieschemas = require('../apollo/schemas/movie.schema');
+const Movieresolvers = require('../apollo/resolvers/movie.resolver');
+const Catalogueschemas = require('../apollo/schemas/catalogue.schema');
+const Catalogueresolvers = require('../apollo/resolvers/catalogue.resolver');
 
 const app = express()
 
 const graphQlServer = new ApolloServer({
-  typeDefs:schemas,
-  resolvers
+  typeDefs:[Movieschemas, Catalogueschemas],
+  resolvers: [Movieresolvers, Catalogueresolvers]
 })
 graphQlServer.applyMiddleware({ app, path: '/graphql' })
 
