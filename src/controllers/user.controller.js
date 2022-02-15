@@ -48,7 +48,7 @@ exports.register = (req, res) => {
 
 exports.login = (req, res) => {
   //User.findOne (rechercher l'utilisateur par mail)
-  User.findOne({ email: req.body.email })
+  const user = User.findOne({ email: req.body.email })
     .then((user) => {
       let passwordValid = bcrypt.compareSync(req.body.password, user.password);
       if (!passwordValid) {
@@ -69,7 +69,7 @@ exports.login = (req, res) => {
         }
       );
       res.status(200).send({
-        auth: true,
+        ...user._doc,
         token: userToken,
       });
     })

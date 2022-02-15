@@ -16,15 +16,12 @@ const userSchema = new Schema({
         required: true,
         unique : true,
     },
-    premium: {
-        type: Boolean,
-        required: true,
-        default: false,
+    abannoment: {
+        type: String,
+        default: null,
     },
-    standard : {
-        type: Boolean,
-        required: true,
-        default: false,
+    dateab : {
+        type: Date,
     }
 
 

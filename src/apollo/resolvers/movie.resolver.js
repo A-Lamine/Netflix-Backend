@@ -16,7 +16,7 @@ module.exports = {
                 {
                     title: args.title,
                     img: args.img,
-                    classification: parent.classification
+                    classification: args.classification
                 }
             )
             return newMovie.save();
