@@ -35,7 +35,7 @@ exports.register = (req, res) => {
           }
         );
         res.status(200).send({
-          auth: true,
+          subscription: user.subscription,
           token: userToken,
         });
       })
@@ -61,7 +61,6 @@ exports.login = (req, res) => {
       let userToken = jwt.sign(
         {
           id: user._id,
-         
         },
         configs.jwt.secret,
         {
@@ -69,8 +68,8 @@ exports.login = (req, res) => {
         }
       );
       res.status(200).send({
-        ...user._doc,
         token: userToken,
+        subscription: user.subscription,
       });
     })
     .catch((err) => res.status(404).send({

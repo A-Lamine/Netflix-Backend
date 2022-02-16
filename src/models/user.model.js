@@ -16,7 +16,7 @@ const userSchema = new Schema({
         required: true,
         unique : true,
     },
-    abannoment: {
+    subscription: {
         type: String,
         default: null,
     },
