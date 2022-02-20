@@ -18,7 +18,7 @@ const userSchema = new Schema({
     },
     subscription: {
         type: String,
-        default: null,
+        default: "",
     },
     dateab : {
         type: Date,

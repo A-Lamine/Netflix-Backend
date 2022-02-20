@@ -26,8 +26,7 @@ exports.register = (req, res) => {
       .then((data) => {
         let userToken = jwt.sign(
           {
-            id: data._id,
-            isAdmin: data.isAdmin,
+            id: user._id,
           },
           configs.jwt.secret,
           {
@@ -35,8 +34,8 @@ exports.register = (req, res) => {
           }
         );
         res.status(200).send({
-          subscription: user.subscription,
           token: userToken,
+          subscription: user.subscription,
         });
       })
       .catch((err) => {
