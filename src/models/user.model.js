@@ -22,6 +22,10 @@ const userSchema = new Schema({
     },
     dateab : {
         type: Date,
+    },
+    isadmin : {
+        type: Boolean,
+        default: false
     }
 
 

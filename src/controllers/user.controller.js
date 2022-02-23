@@ -36,6 +36,8 @@ exports.register = (req, res) => {
         res.status(200).send({
           token: userToken,
           subscription: user.subscription,
+          email: user.email,
+          isAdmin: user.isAdmin,
         });
       })
       .catch((err) => {
@@ -69,6 +71,8 @@ exports.login = (req, res) => {
       res.status(200).send({
         token: userToken,
         subscription: user.subscription,
+        email: user.email,
+        isAdmin: user.isAdmin,
       });
     })
     .catch((err) => res.status(404).send({
