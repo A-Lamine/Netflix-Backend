@@ -14,6 +14,7 @@ module.exports = {
         createMovie(parent, args) {
             const newMovie = new Movie(
                 {
+
                     title: args.title,
                     background: args.background,
                     img: args.img,

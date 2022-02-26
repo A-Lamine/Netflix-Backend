@@ -12,6 +12,7 @@ module.exports = {
     },
     Mutation: {
         createCatalogue(parent, args) {
+            
             const newCatalogue = new Catalogue(
                 {
                     name: args.name,
