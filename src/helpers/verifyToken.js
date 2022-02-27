@@ -16,6 +16,7 @@ function verifyToken(req, res, next) {
                     auth: false,
                     token: null,
                     message:"not authorized"
+                    
                 })
             }
             req.user = jwtdecoded;

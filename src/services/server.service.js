@@ -18,7 +18,14 @@ const graphQlServer = new ApolloServer({
 })
 graphQlServer.applyMiddleware({ app, path: '/graphql' })
 
-app.use(bodyParser.json());
+/* app.use(bodyParser.json()); */
+app.use(function (req, res, next) {
+  if (req.originalUrl === "/api/v1/webhooks/stripe") {
+    next();
+  } else {
+    express.json()(req, res, next);
+  }
+})
 app.use(cors())
 app.use("/api/v1/", apiRouter)
 
