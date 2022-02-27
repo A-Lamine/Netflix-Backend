@@ -72,7 +72,7 @@ exports.login = (req, res) => {
         token: userToken,
         subscription: user.subscription,
         email: user.email,
-        isAdmin: user.isAdmin,
+        isAdmin: user.isadmin,
       });
     })
     .catch((err) => res.status(404).send({
